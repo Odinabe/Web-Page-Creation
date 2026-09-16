@@ -26,11 +26,11 @@ async def main():
     try:
         pygame.mixer.music.load("帝国の侵略.oog") 
         pygame.mixer.music.play(-1) # 初期状態ではスタート画面の曲を無限ループ
-        pygame.mixer.music.set_volume(BGM_VOLUME)  # 🌟BGM音量を 0.8 に設定
+        pygame.mixer.music.set_volume(BGM_VOLUME)  # BGM音量 0.8 設定
     except pygame.error:
         print("スタート画面のBGMファイルが見つからないか、読み込めませんでした。そのまま続行します。")
 
-    # 2. バトル中のBGMリスト（「大地を揺るがす咆哮.oog」を削除しました）
+    # 2. バトル中のBGMリスト
     BATTLE_BGMS = [
         "飛翔.oog",
         "砂塵の城塞.oog"
@@ -41,8 +41,8 @@ async def main():
     se_decide_battle = None
 
     try:
-        se_cursor = pygame.mixer.Sound("着火音.oog")  # ✨ 移動音を「着火音.oog」に変更
-        se_cursor.set_volume(SE_VOLUME)            # 🌟SE音量を 1.0 に設定
+        se_cursor = pygame.mixer.Sound("着火音.oog")  # 移動音
+        se_cursor.set_volume(SE_VOLUME)            # SE音量 1.0 に設定
     except pygame.error:
         print("選択効果音(着火音.oog)が見つかりません。消音で続行します。")
 
@@ -218,7 +218,7 @@ async def main():
             if unit_type == "melee_infantry":
                 self.hp = 50 if is_captain else 25       
                 self.radius = 22    
-                self.base_thrust = 0.95                 　
+                self.base_thrust = 0.95                 
                 self.mass = 4.0                         
                 self.search_range = 700 
                 self.attack_power = 1                   
